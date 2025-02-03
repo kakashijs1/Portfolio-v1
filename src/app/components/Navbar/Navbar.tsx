@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
-import Image from "next/image";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaGithub, FaInstagram, FaFacebookSquare } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const logo = "/assets/LogoTcss.png";
+
 
   const socialLinks = [
     {
@@ -27,17 +28,16 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between py-6">
+      <motion.nav
+      initial={{ opacity: 0 , x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1.8, delay: 2 }}
+
+
+      className="flex items-center justify-between py-6">
         <div className="flex flex-shrink-0 items-center">
           <Link href="#">
-            <Image
-              className="mx-2"
-              src={logo}
-              alt=""
-              width={50}
-              height={33}
-              quality={100}
-            />
+             <p className="tracking-widest">CRACKER PORTFOLIO</p>
           </Link>
         </div>
 
@@ -55,7 +55,7 @@ const Navbar = () => {
           ))}
         </div>
 
-      </nav>
+      </motion.nav>
     </>
   );
 };
